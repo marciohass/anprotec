@@ -2,87 +2,132 @@
 @extends('site.master.menu')
 
 <main role="main">
-
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-
-          @for($x=0; $x<count($banners); $x++)
-              <li data-target="#myCarousel" data-slide-to="{{$x}}" @if($x == 0)class="active"@endif></li>
-          @endfor
-        </ol>
-        <div class="carousel-inner">
-
-          @foreach($banners as $key=>$value)
-
-          <div class="carousel-item @if($key == 0){{'active'}}@endif">
-              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-              <img src="image_banners/{{$value->banner}}" class="img-fluid d-block">
-              <div class="container">
-                  <div class="carousel-caption d-none d-md-block">
-                  <h1>{{$value->titulo}}</h1>
-                  <p>{{$value->descricao}}</p>
-                  </div>
-              </div>
-              </div>
-
-          @endforeach
-
+    <div class="row" style="margin-right: 0px; margin-left: 0px;">
+        <div style="margin-bottom: -380px; margin-top: 150px;">
+          <a name="inicio"><img src="images/office.jpg" class="img-fluid" /></a>
+          <div class="title">
+            <div style="padding: 40px;">
+              <h4 class="font_4">
+                <span style="color: #5f63c1;">Neque porro</span>
+              </h4>
+              <h4 class="font_4">
+                <span style="color: #5f63c1;">quisquam</span>
+              </h4>
+              <h4 class="font_4">
+                <span style="color: #5f63c1;">est qui</span>
+              </h4>
+              <h4 class="font_4">
+                <span style="color: #5f63c1;">dolorem ipsum </span>
+              </h4>
+              <h4 class="font_4">
+                <span style="color: #5f63c1;">quia dolor </span>
+              </h4>
+            </div>
+          </div>
         </div>
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-    </div>
+      </div>
+      <a name="sobre"></a>
+      <div class="container">
+        <h3 class="font_3">SOBRE</h3>
+        <img src="images/equipe.jpg" class="img-fluid mb-5" />
+        <p class="text-justify">
+          Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus
+          sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.
+          Praeterea iter est quasdam res quas ex communi. At nos hinc posthac,
+          sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in
+          diem certam indicere. Cras mattis iudicium purus sit amet fermentum.
+        </p>
+        <a name="contato"></a>
+        <p class="text-justify">
+          Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus
+          sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.
+          Praeterea iter est quasdam res quas ex communi. At nos hinc posthac,
+          sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in
+          diem certam indicere. Cras mattis iudicium purus sit amet fermentum.
+        </p>
 
-    <div class="container">
-        <blockquote class="blockquote">
-            <p class="mb-0">
-                @foreach($modelo as $md)
-                    {{$md->descricao}}
-                @endforeach
+        <h3 class="font_3 mt-5">CONTATO</h3>
+        <p class="text-justify">
+          Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus
+          sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.
+          Praeterea iter est quasdam res quas ex communi. At nos hinc posthac,
+          sitientis piros Afros.
+        </p>
+        <div class="row mb-5">
+          <div class="col-sm-6">
+            <form
+              action=""
+              method="POST"
+              class="needs-validation mt-0"
+              novalidate
+            >
+              <div class="form-group">
+                <label for="nome">Nome*</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="nome"
+                  id="nome"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail*</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="mensagem">Mensagem*</label>
+                <textarea
+                  class="form-control"
+                  id="mensagem"
+                  name="mensagem"
+                  rows="3"
+                  placeholder="Digite a sua mensagem..."
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary float-right">
+                  Enviar
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="col-sm-6">
+            <p class="mt-4">
+              <span style="font-size: 13px; line-height: 2.2em; color: #5f63c1;"
+                >TELEFONE</span
+              ><br />
+              <span style="font-size: 16px; line-height: 1.4em; color: #5f63c1;"
+                >(11) 5544-8877</span
+              >
             </p>
-        </blockquote>
+
+            <p>
+              <span style="font-size: 13px; line-height: 2.2em; color: #5f63c1;"
+                >EMAIL</span
+              ><br />
+              <span style="font-size: 16px; line-height: 1.4em; color: #5f63c1;"
+                >info@anprotec.com.br</span
+              >
+            </p>
+
+            <p>
+              <span style="font-size: 13px; line-height: 2.2em; color: #5f63c1;"
+                >SIGA-NOS</span
+              ><br />
+              <i class="fab fa-facebook-square"></i>
+              <i class="fab fa-instagram-square"></i>
+            </p>
+          </div>
+        </div>
     </div>
-    <div class="row mb-5"></div>
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-
-        @foreach($assinaturas as $assinatura)
-
-            <div class="col-lg-4">
-                <form name="payment-method" method="POST" action="{{route('site.paymentmethod')}}">
-                    @csrf
-                    @if($assinatura->imagem == "")
-                        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-                    @endif
-                    <img src="image_assinaturas/{{$assinatura->imagem}}" class="rounded-circle" width="140" height="140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <h2>{{$assinatura->nome}}</h2>
-                    <p>{{$assinatura->descricao}}</p>
-                    <h4><span class="text-muted">R$ {{$assinatura->valor}}</span></h4>
-                    <input type="hidden" name="id" value="{{$assinatura->id}}">
-                    <input type="hidden" name="titulo" value="{{$assinatura->nome}}">
-                    <input type="hidden" name="valor" value="{{$assinatura->valor}}">
-                    <input type="hidden" name="tipo_venda" value="S">
-                    <p><button type="submit" class="btn btn-secondary">Assine já! &raquo;</button></p>
-                </form>
-            </div><!-- /.col-lg-4 -->
-
-        @endforeach
-
-      </div><!-- /.row -->
-
-    </div><!-- /.container -->
 </main>
 @extends('site.master.footer')
 

@@ -1,39 +1,47 @@
 
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light mb-5">
           <a class="navbar-brand mr-5 ml-5" href="#">
-              @if(count($modelo))
-                @foreach($modelo as $mod)
-                    @if(!empty($mod->logo))
-                        <img src="{{ URL::to('/') }}/image_logo/{{$mod->logo}}" class="ml-3">
-                    @else
-                        {{$mod->nome}}
-                    @endif
-                @endforeach
-              @endif
+            <img src="images/logo_anprotec.png" class="ml-3" />
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('site.home') }}">Home</a>
+          <div
+            class="collapse navbar-collapse"
+            id="navbarCollapse"
+            style="
+              font-style: normal;
+              font-variant-ligatures: normal;
+              font-variant-caps: normal;
+              font-variant-numeric: normal;
+              font-variant-east-asian: normal;
+              font-weight: bold;
+              font-stretch: normal;
+              font-size: 12px;
+              font-family: Arial, Helvetica, sans-serif;
+            "
+          >
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item mr-5">
+                <a class="nav-link" href="{{ route('site.home') }}#inicio">INÍCIO</a>
               </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{ route('site.loja') }}">Loja</a>
+              <li class="nav-item mr-5">
+                <a class="nav-link" href="{{ route('site.home') }}#sobre">SOBRE</a>
               </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{ route('site.promocoes') }}">Novidades & Promoções</a>
+              <li class="nav-item mr-5">
+                <a class="nav-link" href="{{ route('site.home') }}#contato">CONTATO</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('site.gifts') }}">Presentes</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{ route('site.contato') }}">Contato</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{ route('site.comentario') }}">Comentários</a>
+              <li class="nav-item mr-5">
+                <a class="nav-link" href="pesquisa">PESQUISA</a>
               </li>
             </ul>
           </div>
