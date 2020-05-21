@@ -24,9 +24,14 @@ class SiteController extends Controller
         return view('site.home');
     }
 
-    public function pesquisa() {
+    public function dados() {
 
-        return view('site.pesquisa');
+        return view('site.dados');
+    }
+
+    public function questionario(Request $request) {
+
+        return view('site.questionario');
     }
 
     public function contato() {

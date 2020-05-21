@@ -4,23 +4,18 @@
 <main role="main">
     <div class="row" style="margin-right: 0px; margin-left: 0px;">
         <div style="margin-bottom: -380px; margin-top: 150px;">
-          <a name="inicio"><img src="images/office.jpg" class="img-fluid" /></a>
+          <a name="inicio"><img src="images/img01.png" class="img-fluid" /></a>
           <div class="title">
-            <div style="padding: 40px;">
+            <div style="padding: 60px;">
               <h4 class="font_4">
-                <span style="color: #5f63c1;">Neque porro</span>
-              </h4>
-              <h4 class="font_4">
-                <span style="color: #5f63c1;">quisquam</span>
-              </h4>
-              <h4 class="font_4">
-                <span style="color: #5f63c1;">est qui</span>
-              </h4>
-              <h4 class="font_4">
-                <span style="color: #5f63c1;">dolorem ipsum </span>
-              </h4>
-              <h4 class="font_4">
-                <span style="color: #5f63c1;">quia dolor </span>
+                <span style="color: #1316a3;">
+                    Em meio à pandemia e ao cancelamento de eventos, sentimos uma urgente necessidade de mudança. <br>
+                    Mudança de comportamento, atitudes, mudança cultural. <br>
+                    Para conseguirmos elaborar uma jornada positiva precisamos estar unidos e conectados.<br>
+                    Divida com amigos, profissionais e esteja pronto para a mudança.<br>
+                    Ninguém ficará para trás. <br>
+                    <strong>#anprotece</strong>
+                </span>
               </h4>
             </div>
           </div>
@@ -29,104 +24,28 @@
       <a name="sobre"></a>
       <div class="container">
         <h3 class="font_3">SOBRE</h3>
-        <img src="images/equipe.jpg" class="img-fluid mb-5" />
-        <p class="text-justify">
-          Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus
-          sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.
-          Praeterea iter est quasdam res quas ex communi. At nos hinc posthac,
-          sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in
-          diem certam indicere. Cras mattis iudicium purus sit amet fermentum.
+        <img src="images/sobre_img.jpg" class="img-fluid mb-2" />
+        <p class="text-justify mb-5">
+            Agora é hora de te ouvir, saber quem você é. Só assim poderemos agir juntos!
+            Responda a pesquisa no site www.anprotec.com.br e dê o primeiro passo em direção a mudança positiva do mercado.<br>
+            <strong>#produtor #anprotece</strong>
         </p>
         <a name="contato"></a>
-        <p class="text-justify">
-          Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus
-          sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.
-          Praeterea iter est quasdam res quas ex communi. At nos hinc posthac,
-          sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in
-          diem certam indicere. Cras mattis iudicium purus sit amet fermentum.
-        </p>
 
-        <h3 class="font_3 mt-5">CONTATO</h3>
-        <p class="text-justify">
+        <h3 class="font_3 mt-5">TUDO POR TODOS</h3>
+        <img src="images/uniao.jpg" class="img-fluid mb-2" />
+        <div class="card mb-3" style="background-color: #1c2330">
+            <div class="card-body text-center mt-3 mb-3" style="color: white">
+                <br>ANUNCIE AQUI<br><br>
+            </div>
+        </div>
+        <p class="text-justify mb-5">
           Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus
           sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus.
           Praeterea iter est quasdam res quas ex communi. At nos hinc posthac,
           sitientis piros Afros.
         </p>
-        <div class="row mb-5">
-          <div class="col-sm-6">
-            <form
-              action=""
-              method="POST"
-              class="needs-validation mt-0"
-              novalidate
-            >
-              <div class="form-group">
-                <label for="nome">Nome*</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="nome"
-                  id="nome"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="email">E-mail*</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  name="email"
-                  id="email"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="mensagem">Mensagem*</label>
-                <textarea
-                  class="form-control"
-                  id="mensagem"
-                  name="mensagem"
-                  rows="3"
-                  placeholder="Digite a sua mensagem..."
-                  required
-                ></textarea>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary float-right">
-                  Enviar
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="col-sm-6">
-            <p class="mt-4">
-              <span style="font-size: 13px; line-height: 2.2em; color: #5f63c1;"
-                >TELEFONE</span
-              ><br />
-              <span style="font-size: 16px; line-height: 1.4em; color: #5f63c1;"
-                >(11) 5544-8877</span
-              >
-            </p>
 
-            <p>
-              <span style="font-size: 13px; line-height: 2.2em; color: #5f63c1;"
-                >EMAIL</span
-              ><br />
-              <span style="font-size: 16px; line-height: 1.4em; color: #5f63c1;"
-                >info@anprotec.com.br</span
-              >
-            </p>
-
-            <p>
-              <span style="font-size: 13px; line-height: 2.2em; color: #5f63c1;"
-                >SIGA-NOS</span
-              ><br />
-              <i class="fab fa-facebook-square"></i>
-              <i class="fab fa-instagram-square"></i>
-            </p>
-          </div>
-        </div>
     </div>
 </main>
 @extends('site.master.footer')

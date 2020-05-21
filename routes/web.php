@@ -16,7 +16,8 @@ Route::get('envio-email', function(){
 
 // Rota da página Home
 Route::get('/', 'SiteController@home')->name('site.home');
-Route::get('/pesquisa', 'SiteController@pesquisa')->name('site.pesquisa');
+Route::get('/dados', 'SiteController@dados')->name('site.dados');
+Route::post('/questionario', 'SiteController@questionario')->name('site.questionario');
 
 
 Auth::routes();
