@@ -4,21 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Clientes extends Model
+class Inscritos extends Model
 {
-    protected $table = 'clientes';
+    protected $table = 'inscritos';
     protected $fillable = [
         'nome',
         'email',
         'telefone',
-        'data_nascimento',
+        'cpf',
+        'rg',
         'cep',
-        'endereco',
+        'rua',
         'numero',
         'complemento',
         'bairro',
         'cidade',
-        'uf',
-        'email_mkt'
+        'uf'
       ];
 }

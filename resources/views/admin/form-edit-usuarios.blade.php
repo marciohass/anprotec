@@ -18,7 +18,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="../../../../datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../../../../datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="http://localhost/folgosa/public/css/app.css">
-
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -33,12 +32,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Catálogo</h1>
+                <h1 class="m-0 text-dark">Usuários</h1>
               </div><!-- /.col -->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Catálogo</li>
+                  <li class="breadcrumb-item active">Usuários</li>
                 </ol>
               </div><!-- /.col -->
             </div><!-- /.row -->
@@ -56,12 +55,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- jquery validation -->
                   <div class="card card-outline card-primary">
                     <div class="card-header">
-                      <h3 class="card-title mb-0">Cadastro de Produtos </h3>
+                      <h3 class="card-title mb-0">Edição de Usuários </h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{route('produtos.store')}}" method="post" enctype="multipart/form-data">
-                      <div class="card-body">
+                    <form action="{{route('usuarios.update', $usuario->id)}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <div class="card-body">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                             <ul>
@@ -78,67 +79,59 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </div><br />
                         @endif
 
-                        <div class="form-group col-sm-12">
-                            @csrf
-                          <label for="exampleInputEmail1">Título</label>
-                          <input type="text" name="titulo" class="form-control" id="titulo" placeholder="Título" required>
-                        </div>
-                        <div class="form-group col-sm-12">
-                          <label for="descricao">Descrição</label>
-                          <textarea name="descricao" class="form-control" id="descricao" rows=3 placeholder="Descrição"></textarea>
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <div class="card card-outline card-primary">
-                                <div class="card-header d-flex align-items-center">
-                                  <h5 class="card-title mb-0">Selecione uma imagem &nbsp;</h5>
-                                  <small id="telefoneHelpBlock" class="form-text text-muted">
-                                    (imagem com 500x500px)
-                                  </small>
-                                </div>
-                                <div class="card-body">
-                                    <input type="file" name="image" />
-                                </div>
-                                <!-- /.card-body -->
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $usuario->name }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-                        <div class="row col-sm-12">
-                            <div class="col-sm-3">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="novidade" name="novidade" value="1">
-                                    <label class="form-check-label" for="exampleCheck2">Novidade</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-9">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="promocao" name="promocao" value="1">
-                                    <label class="form-check-label" for="exampleCheck2">Promoção</label>
-                                </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $usuario->email }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-                        <div class="row col-sm-12">
-                            <div class="form-group col-sm-3 mt-3">
-                                <label for="exampleInputFile">Valor</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text">$</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="valor" name="valor" required>
-                                </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                            <div class="form-group col-sm-3 mt-3">
-                                <label for="exampleInputFile">Valor da promoção</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text">$</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="valor_promocao" name="valor_promocao">
-                                  </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
                       </div>
                       <!-- /.card-body -->
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-success float-right">Adicionar</button>
+                        <button type="submit" class="btn btn-success float-right" data-placement="top">Editar</button>
                       </div>
                     </form>
                   </div>

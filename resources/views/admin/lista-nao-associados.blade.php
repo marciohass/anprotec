@@ -33,12 +33,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Clientes</h1>
+                <h1 class="m-0 text-dark">Não Associados</h1>
               </div><!-- /.col -->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Clientes</li>
+                  <li class="breadcrumb-item active">Não Associados</li>
                 </ol>
               </div><!-- /.col -->
             </div><!-- /.row -->
@@ -53,10 +53,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="card-header">
                     <div class="row">
                         <div class="col-sm-10">
-                            <h3 class="card-title mb-0">Listagem de clientes</h3>
+                            <h3 class="card-title mb-0">Listagem de não associados</h3>
                         </div>
                         <div class="col-sm-2">
-                            <a href="{{ route('admin.sendMailMkt') }}" class="btn btn-success btn-sm" data-placement="top">Enviar novidades</a>
+
                         </div>
                     </div>
                 </div>
@@ -75,9 +75,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <thead>
                                     <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Nome</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">E-mail</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Marketing</th>
-                                        <th colspan="2">Ações</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Email</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Cidade</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">UF</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Associado</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -85,20 +86,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <tr role="row" class="odd">
                                                 <td tabindex="0" class="sorting_1">{{ $item->nome }}</td>
                                                 <td>{{ $item->email }}</td>
-                                                <td align="center" width="10%">
-                                                    @if($item->email_mkt == 1)
+                                                <td>{{ $item->cidade }}</td>
+                                                <td>{{ $item->uf }}</td>
+                                                <td>
+                                                    @if($item->Q27 == 1)
                                                         <i class="fas fa-check" style="color: Green;"></i>
                                                     @else
                                                         <i class="fas fa-times" style="color: Red;"></i>
                                                     @endif
-                                                </td>
-                                                <td width="10%">
-                                                    <form action="{{ route('clientes.destroy', $item->id) }}" method="post">
-                                                        <a href="{{ route('admin.show-cliente',$item->id)}}" class="btn btn-primary btn-sm" data-placement="top"><i class="fas fa-eye"></i></a>
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
-                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -108,13 +103,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                         <div class="row">
                             <div class="col-sm-12 col-md-5">
-                                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
-                                    Mostrando 1 até @if(count($items)< 5){{ count($items) }} @else {{ 5 }} @endif de {{ count($items) }} registros
-                                    </div>
-                                </div>
                                 <div class="col-sm-12 col-md-7">
                                     <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                                        {!! $items->links(); !!}
+
                                     </div>
                                 </div>
                             </div>

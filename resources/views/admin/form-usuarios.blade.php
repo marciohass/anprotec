@@ -18,6 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="../../../../datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../../../../datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="http://localhost/folgosa/public/css/app.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -32,12 +33,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Assinatura</h1>
+                <h1 class="m-0 text-dark">Usuário</h1>
               </div><!-- /.col -->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Assinatura</li>
+                  <li class="breadcrumb-item active">Usuário</li>
                 </ol>
               </div><!-- /.col -->
             </div><!-- /.row -->
@@ -55,14 +56,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- jquery validation -->
                   <div class="card card-outline card-primary">
                     <div class="card-header">
-                      <h3 class="card-title mb-0">Edição de Assinaturas </h3>
+                      <h3 class="card-title mb-0">Cadastro de Usuários </h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{route('assinaturas.update', $assinatura->id)}}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
-                        <div class="card-body">
+                    <form action="{{route('usuarios.store')}}" method="post" enctype="multipart/form-data">
+                      <div class="card-body">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                             <ul>
@@ -79,53 +78,62 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </div><br />
                         @endif
 
-                        <div class="form-group col-sm-12">
-                            @csrf
-                          <label for="nome">Título</label>
-                        <input type="text" name="nome" class="form-control" id="nome" placeholder="Título" value="{{ $assinatura->nome }}" required>
-                        </div>
-                        <div class="form-group col-sm-12">
-                          <label for="descricao">Descrição</label>
-                        <textarea name="descricao" class="form-control" id="descricao" rows="3" placeholder="Descrição">{{ $assinatura->descricao }}</textarea>
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <div class="card card-outline card-primary">
-                                <div class="card-header">
-                                  <h5 class="card-title mb-0">Selecione uma imagem</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <input type="file" name="image" />
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="{{ URL::to('/') }}/image_assinaturas/{{ $assinatura->imagem }}" class="img-thumbnail" width="100" />
-                                            <input type="hidden" name="hidden_image" value="{{ $assinatura->imagem }}" />
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div id="uploaded_image"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.card-body -->
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-                        <div class="row col-sm-12">
-                            <div class="form-group col-sm-3 mt-3">
-                                <label for="valor">Valor</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text">$</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="valor" name="valor" value="{{ $assinatura->valor }}" required>
-                                  </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
                       </div>
                       <!-- /.card-body -->
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-success float-right" data-placement="top">Editar</button>
+                        <button type="submit" class="btn btn-success float-right">Adicionar</button>
                       </div>
+                      </div>
+
                     </form>
                   </div>
                   <!-- /.card -->

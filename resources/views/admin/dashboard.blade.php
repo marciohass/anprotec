@@ -30,63 +30,48 @@
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-8">
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>{{$count_vendas}}</h3>
+                  <h3>{{$count_inscritos}}</h3>
 
-                  <p>Total de vendas</p>
+                  <p>Total de inscritos</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  <i class="icon ion-android-contacts"></i>
                 </div>
-                <a href="{{ route('admin.lista-vendas') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.lista-inscritos') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-8">
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>{{$count_produtos}}</h3>
+                  <h3>{{$count_associados}}</h3>
 
-                  <p>Produtos</p>
+                  <p>Total de associados</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
+                  <i class="icon ion-thumbsup"></i>
                 </div>
-                <a href="{{ route('admin.lista-venda-produtos') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.lista-associados') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <h3>{{$count_assinantes}}</h3>
-
-                  <p>Assinantes</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                <a href="{{ route('admin.lista-venda-assinaturas') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-8">
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3>{{$count_presentes}}</h3>
+                  <h3>{{$count_nao_associados}}</h3>
 
-                  <p>Presentes</p>
+                  <p>Total de não associados</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="{{ route('admin.lista-venda-presentes') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.lista-nao-associados') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -97,15 +82,15 @@
                 <div class="card-header ui-sortable-handle" style="cursor: move;">
                   <h3 class="card-title">
                     <i class="fas fa-chart-pie mr-1"></i>
-                    Vendas
+                    Inscrições
                   </h3>
                   <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">
                       <li class="nav-item">
-                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Mensal</a>
+                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Inscritos</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Diário</a>
+                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Associados</a>
                       </li>
                     </ul>
                   </div>
@@ -145,7 +130,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+      Anprotec
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
@@ -168,9 +153,9 @@
         labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
         datasets: [
             {
-            label: "Vendas no mês",
+            label: "Inscritos no UF",
             backgroundColor: ["#6610f2", "#6610f2","#6610f2","#6610f2","#6610f2","#6610f2", "#6610f2","#6610f2","#6610f2","#6610f2","#6610f2", "#6610f2"],
-            data: [{{ $total_meses }}]
+            data: [200,300,23,210,23,44,120,800,90,987,89,99]
             }
         ]
         },
@@ -178,7 +163,7 @@
         legend: { display: false },
         title: {
             display: true,
-            text: 'Vendas no ano de 2020'
+            text: 'Inscrições por Estado'
         }
         }
     });
@@ -187,12 +172,12 @@
     var myBarChart = new Chart(document.getElementById("bar-chart2"), {
         type: 'bar',
         data: {
-        labels: [{{$dias_grafico}}],
+        labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
         datasets: [
             {
-            label: "Vendas no mês de {{$mes_extenso}}",
+            label: "Vendas no mês de Maio",
             backgroundColor: ['#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2'],
-            data: [{{ $total_dias }}]
+            data: [21,32,22,24,23,45,56,34,23,44,34,22,12,45,67,78,78,34,23,56,234,45,45,23,67,66,44,22,66,44,33]
             }
         ]
         },
@@ -200,7 +185,7 @@
         legend: { display: false },
         title: {
             display: true,
-            text: 'Vendas no mês {{$mes_extenso}}'
+            text: 'Vendas no mês 03'
         }
         }
     });

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Comentarios;
+use App\User;
 
-class ComentariosController extends Controller
+class UsuariosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ComentariosController extends Controller
      */
     public function index()
     {
-        $comentarios = Comentarios::get();
+        $items = User::all();
 
-        return view('admin.lista-comentarios', compact('comentarios'));
+        return view('admin.lista-usuarios', compact(['items']));
     }
 
     /**
@@ -26,7 +26,7 @@ class ComentariosController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.form-usuarios');
     }
 
     /**
@@ -37,7 +37,19 @@ class ComentariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome'   => 'required',
+            'email'  => 'required|email|unique:user',
+            'password' => 'required'
+          ]);
+
+        $user = new User([
+            'nome' => $request->get('nome'),
+            'email'=> $request->get('email'),
+            'password'=> Hash::make($request->get('password'))
+          ]);
+
+        $user->save();
     }
 
     /**
@@ -59,7 +71,9 @@ class ComentariosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = User::find($id);
+
+        return view('admin.form-edit-usuarios', compact(['usuario']));
     }
 
     /**
@@ -71,7 +85,16 @@ class ComentariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $modelo = User::find($id);
+
+        $modelo->name = $request->get('name');
+        $modelo->email = $request->get('email');
+        $modelo->password = Hash::make($request->get('password'));
+
+        $modelo->save();
+
+        return redirect('admin/form-lista-usuarios/'.$id)->with('success', 'Usuário foi atualizado!');
     }
 
     /**

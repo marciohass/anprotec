@@ -2,17 +2,11 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        @if(count($modelos))
-            @foreach($modelos as $modelo)
-                <img src="{{ URL::to('/') }}/image_logo/{{$modelo->logo}}" class="ml-3">
-            @endforeach
-        @else
-            <img src="../../../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                style="opacity: .8">
-            <span class="brand-text font-weight-light">
-                Admin
-            </span>
-        @endif
+        <img src="../../../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="brand-text font-weight-light">
+            Admin
+        </span>
     </a>
 
     <!-- Sidebar -->
@@ -20,19 +14,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            @if(count($modelos) > 0)
-                @foreach($modelos as $modelo)
-                    <img src="{{ URL::to('/') }}/image_perfil/{{$modelo->foto}}" class="img-circle elevation-2" alt="User Image">
-                    <?php
-                    $nome_modelo = $modelo->nome;
-                    ?>
-                @endforeach
-            @else
-                <img src="../../../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-            @endif
+            <img src="../../../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">@if(!empty($nome_modelo)) {{$nome_modelo}} @endif</a>
+          <a href="#" class="d-block">{{auth()->user()->name}}</a>
         </div>
         <div class="image"><a href="/logout"><i class="fas fa-power-off fa-2x" style="color: #01ff70"></i></a></div>
       </div>
@@ -51,85 +36,34 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.form-profile',1) }}" class="nav-link">
-                    <i class="fas fa-user nav-icon"></i>
-                    <p>
-                        Meu Perfil
-                    </p>
-                </a>
-            </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon nav-icon fas fa-edit"></i>
-              <p>
-                Cadastros
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                  <a href="{{ route('admin.lista-assinaturas') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Assinaturas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('admin.lista-produtos') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Catálogo</p>
-                </a>
-              </li>
-              <li class="nav-item">
-              <a href="{{ route('admin.lista-banners') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Banners</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="{{ route('admin.lista-redesociais') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>RedesSociais</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-            <li class="nav-item">
-                <a href="{{ route('admin.lista-vendas') }}" class="nav-link">
+                <a href="{{ route('admin.lista-usuarios') }}" class="nav-link">
                     <i class="fas fa-list nav-icon"></i>
                     <p>
-                        Vendas
+                        Cadastro de usuários
                     </p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.lista-venda-produtos') }}" class="nav-link">
+                <a href="{{ route('admin.lista-inscritos') }}" class="nav-link">
                     <i class="fas fa-list nav-icon"></i>
                     <p>
-                        Produtos vendidos
+                        Inscritos
                     </p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.lista-venda-assinaturas') }}" class="nav-link">
+                <a href="{{ route('admin.lista-associados') }}" class="nav-link">
                     <i class="fas fa-list nav-icon"></i>
                     <p>
-                        Assinaturas vendidas
+                        Associados
                     </p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.lista-venda-presentes') }}" class="nav-link">
+                <a href="{{ route('admin.lista-nao-associados')}}" class="nav-link">
                     <i class="fas fa-list nav-icon"></i>
                     <p>
-                        Presentes
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('admin.lista-clientes') }}" class="nav-link">
-                    <i class="fas fa-list nav-icon"></i>
-                    <p>
-                        Clientes
+                        Não associados
                     </p>
                 </a>
             </li>
