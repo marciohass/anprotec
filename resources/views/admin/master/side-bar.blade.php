@@ -38,7 +38,7 @@
             </li>
             <li class="nav-item">
                 <a href="{{ route('admin.lista-usuarios') }}" class="nav-link">
-                    <i class="fas fa-list nav-icon"></i>
+                    <i class="fas fa-users nav-icon"></i>
                     <p>
                         Cadastro de usuários
                     </p>
