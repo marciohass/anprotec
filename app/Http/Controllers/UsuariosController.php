@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use Illuminate\Support\Facades\Hash;
+
+use App\Models\Usuarios;
 
 class UsuariosController extends Controller
 {
@@ -14,7 +16,7 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $items = User::all();
+        $items = Usuarios::all();
 
         return view('admin.lista-usuarios', compact(['items']));
     }
@@ -37,19 +39,22 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
-            'nome'   => 'required',
-            'email'  => 'required|email|unique:user',
+            'name'   => 'required',
+            'email'  => 'required|email|unique:users',
             'password' => 'required'
           ]);
 
-        $user = new User([
-            'nome' => $request->get('nome'),
+        $usuario = new Usuarios([
+            'name' => $request->get('name'),
             'email'=> $request->get('email'),
             'password'=> Hash::make($request->get('password'))
           ]);
 
-        $user->save();
+        $usuario->save();
+
+        return redirect('admin/lista-usuarios')->with('success', 'Usuário cadastrado com sucesso!');
     }
 
     /**
@@ -71,7 +76,7 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        $usuario = User::find($id);
+        $usuario = Usuarios::find($id);
 
         return view('admin.form-edit-usuarios', compact(['usuario']));
     }
@@ -86,7 +91,7 @@ class UsuariosController extends Controller
     public function update(Request $request, $id)
     {
 
-        $modelo = User::find($id);
+        $modelo = Usuarios::find($id);
 
         $modelo->name = $request->get('name');
         $modelo->email = $request->get('email');
@@ -94,7 +99,7 @@ class UsuariosController extends Controller
 
         $modelo->save();
 
-        return redirect('admin/form-lista-usuarios/'.$id)->with('success', 'Usuário foi atualizado!');
+        return redirect('admin/lista-usuarios')->with('success', 'Usuário foi atualizado!');
     }
 
     /**
@@ -105,6 +110,9 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Usuarios::findOrFail($id);
+        $data->delete();
+
+        return redirect('admin/lista-usuarios')->with('success', 'Usuário excluído com sucesso!');
     }
 }

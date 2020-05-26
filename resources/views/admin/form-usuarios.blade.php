@@ -61,6 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- /.card-header -->
                     <!-- form start -->
                     <form action="{{route('usuarios.store')}}" method="post" enctype="multipart/form-data">
+                        @csrf
                       <div class="card-body">
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -137,16 +138,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </form>
                   </div>
                   <!-- /.card -->
-                  </div>
-                <!--/.col (left) -->
-                <!-- right column -->
-                <div class="col-md-6">
-
                 </div>
-                <!--/.col (right) -->
               </div>
               <!-- /.row -->
-
+            </div>
           </div><!-- /.container-fluid -->
         </div>
         <!-- /.content -->

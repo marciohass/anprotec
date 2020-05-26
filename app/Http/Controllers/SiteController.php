@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Inscritos;
 use App\Models\Estados;
+use App\Models\Cidades;
 use App\Models\Questionarios;
 
 use Illuminate\Support\Facades\Mail;
@@ -56,16 +57,17 @@ class SiteController extends Controller
           ]);
 
         $inscrito->save();
+        $inscrito_id = $inscrito->id;
 
         // Mail::to($request->get('email'))->send(new SendMailContact($contato));
 
-        return redirect('questionario')->with('success', 'Seus dados foram cadastrados, agora vamos ao segundo passo que é o questionário!');
+        return view('site.questionario', compact('inscrito_id'))->with('success', 'Seus dados foram cadastrados, agora vamos ao segundo passo que é o questionário!');
 
     }
 
     public function questionario(Request $request) {
 
-        return view('site.questionario');
+        return view('site.questionario', compact('cidades'));
     }
 
     public function storeQuestionario(Request $request)
@@ -113,9 +115,9 @@ class SiteController extends Controller
             'Q6_desc' => $request->get('q6_desc'),
             'Q7' => $request->get('q7'),
             'Q8' => $request->get('q8'),
-            'Q9_desc01' => $request->get('q9_desc01'),
-            'Q9_desc02' => $request->get('q9_desc02'),
-            'Q9_desc03' => $request->get('q9_desc03'),
+            'Q9_desc01' => str_replace(',','.',$request->get('q9_desc01')),
+            'Q9_desc02' => str_replace(',','.',$request->get('q9_desc02')),
+            'Q9_desc03' => str_replace(',','.',$request->get('q9_desc03')),
             'Q10' => $request->get('q10'),
             'Q11' => $request->get('q11'),
             'Q12' => $request->get('q12'),

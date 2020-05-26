@@ -23,8 +23,8 @@
                         {{ session()->get('success') }}
                         </div><br />
                     @endif
-                    <input type="hidden" name="inscrito_id" id="inscrito_id" value="4">
-                    <h5 class="label">QUESTIONÁRIO</h5>
+                    <input type="hidden" name="inscrito_id" id="inscrito_id" value="{{$inscrito_id}}">
+                    <h5 class="labelTitle">QUESTIONÁRIO</h5>
                     <div class="form-group col-md-12">
                         <label for="q1" class="label">Você gostaria de ter sua profissão regulamentada?</label>
                         <div class="form-check answer">
@@ -76,16 +76,20 @@
                             Selecionar uma opção!
                         </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="q5" class="label">Qual sua cidade base de atuação?</label>
-                        <select class="custom-select answer col-md-8" name="q5" id="q5" required>
-                          <option value="">Cidade</option>
-                          <option value="São Paulo">São Paulo</option>
-                          <option value="Rio de Janeiro">Rio de Janeiro</option>
-                          <option value="Santa Catarina">Santa Catarina</option>
-                          <option value="Rondonia">Rondonia</option>
-                          <option value="Amapá">Amapá</option>
-                        </select>
+                    <div class="form-group col-md-9">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="q5uf" class="label">Estado</label><br>
+                                <select class="custom-select answer col-md-8" name="q5uf" id="estados" required>
+                                    <option value="">UF</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-9">
+                                <label for="q5" class="label">Qual sua cidade base de atuação?</label>
+                                <select class="custom-select answer col-md-8" name="q5" id="cidades" required>
+                                </select>
+                            </div>
+                        </div>
                         <div class="invalid-feedback">
                             Selecionar uma opção!
                         </div>
@@ -94,18 +98,18 @@
                         <label for="q6" class="label">Você gostaria que a classe tivesse benefícios?</label>
                         <div class="form-check answer">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="q6_1" name="q6" class="custom-control-input" value="1" required>
+                                <input type="radio" id="q6_1" name="q6" class="custom-control-input" value="1" onclick="if(document.getElementById('q6_desc').disabled==true){document.getElementById('q6_desc').disabled=false}" required>
                                 <label class="custom-control-label" for="q6_1">Sim</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="q6_2" name="q6" class="custom-control-input" value="0">
+                                <input type="radio" id="q6_2" name="q6" class="custom-control-input" value="0" onclick="if(document.getElementById('q6_desc').disabled==false){document.getElementById('q6_desc').disabled=true}">
                                 <label class="custom-control-label" for="q6_2">Não</label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group col-md-10">
                         <label for="q6_desc" class="label">Se Sim , favor indicar 03 <small class="text muted">(exemplo medico, jurídico, alimentação)</small></label>
-                        <input type="text" class="form-control answer col-md-8" name="q6_desc" id="q6_desc" value="">
+                        <input type="text" class="form-control answer col-md-8" name="q6_desc" id="q6_desc" value="" disabled>
                     </div>
                     <div class="form-group col-md-12">
                         <label for="q7" class="label">Gostaria de participar de uma negociação coletiva para parametrizar a classe?</label>
@@ -143,9 +147,6 @@
                                       <span class="input-group-text">$</span>
                                     </div>
                                     <input type="text" class="form-control" maxlength="6" name="q9_desc01" id="q9_desc01" value="" required>
-                                    <div class="input-group-append">
-                                      <span class="input-group-text">.00</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -157,9 +158,6 @@
                                       <span class="input-group-text">$</span>
                                     </div>
                                     <input type="text" class="form-control" maxlength="6" name="q9_desc02" id="q9_desc02" value="" required>
-                                    <div class="input-group-append">
-                                      <span class="input-group-text">.00</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -171,9 +169,6 @@
                                       <span class="input-group-text">$</span>
                                     </div>
                                     <input type="text" class="form-control" maxlength="6" name="q9_desc03" id="q9_desc03" value="" required>
-                                    <div class="input-group-append">
-                                      <span class="input-group-text">.00</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -423,7 +418,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary float-right">Finalizar questionário</button>
+                        <button type="submit" class="btn btn-primary float-right">Finalizar questionário</button><br /><br />
                     </div>
                 </form>
             </div>
@@ -455,7 +450,7 @@
     }, false);
     })();
 </script>
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/jquery/jquery.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

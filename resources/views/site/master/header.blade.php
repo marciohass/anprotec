@@ -95,6 +95,12 @@
             font-size: 15px;
             line-height: 26px;
         }
+        .labelTitle {
+            color: #1215a2;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 26px;
+        }
         .answer {
             font-weight: 300;
             font-size: 15px;
@@ -104,6 +110,30 @@
             font-weight: 300;
             font-size: 15px;
             line-height: 26px;
+        }
+        .textos {
+            font-style: normal;
+            font-variant-ligatures: normal;
+            font-variant-caps: normal;
+            font-variant-numeric: normal;
+            font-variant-east-asian: normal;
+            font-weight: lighter;
+            font-stretch: normal;
+            font-size: 16px;
+            line-height: 1.4em;
+            font-family: helveticaneuew01-45ligh, helveticaneuew02-45ligh, helveticaneuew10-45ligh, sans-serif;
+        }
+        .textos_propositos {
+            font-style: normal;
+            font-variant-ligatures: normal;
+            font-variant-caps: normal;
+            font-variant-numeric: normal;
+            font-variant-east-asian: normal;
+            font-weight: lighter;
+            font-stretch: normal;
+            font-size: 20px;
+            line-height: 1.8em;
+            font-family: helveticaneuew01-45ligh, helveticaneuew02-45ligh, helveticaneuew10-45ligh, sans-serif;
         }
     </style>
     <!-- Adicionando JQuery -->
@@ -174,6 +204,46 @@
         });
 
     </script>
+    <script type="text/javascript">
+
+		$(document).ready(function () {
+
+			$.getJSON('/js/estados_cidades.json', function (data) {
+
+				var items = [];
+				var options = '<option value="">UF</option>';
+
+				$.each(data, function (key, val) {
+					options += '<option value="' + val.sigla + '">' + val.sigla + '</option>';
+				});
+				$("#estados").html(options);
+
+				$("#estados").change(function () {
+
+					var options_cidades = '';
+					var str = "";
+
+					$("#estados option:selected").each(function () {
+						str += $(this).text();
+					});
+
+					$.each(data, function (key, val) {
+						if(val.sigla == str) {
+							$.each(val.cidades, function (key_city, val_city) {
+								options_cidades += '<option value="' + val_city + '">' + val_city + '</option>';
+							});
+						}
+					});
+
+					$("#cidades").html(options_cidades);
+
+				}).change();
+
+			});
+
+		});
+
+	</script>
     <title>Anprotec</title>
   </head>
   <body>

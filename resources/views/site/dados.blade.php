@@ -5,22 +5,23 @@
     <main role="main" class="mb-5">
       <div class="container">
         <h3 class="font_3">CONSTRUINDO O AMANHÃ</h3>
-        <h3 class="font_3"><small>O Futuro começa no Presente</small></h3>
-        <p class="text-justify" style="font-weight: normal">
-            Para nós,  mais do que sonhar e imaginar que é possível desenhar um novo futuro para os profissionais produtores e técnicos de eventos .
-            Nossa meta é ousada, e acreditamos  sim que é possível dar visibilidade, legitimidade para uma classe que é fundamental no cenário econômico brasileiro, e que para muitos é como se ela fosse invisível, não  tem seu valor reconhecido.
-            O futuro começa agora, para que possamos construir nosso amanhã!!
+        <h3 class="font_3" style="color: #ff7000;"><small>O Futuro começa no Presente</small></h3>
+        <p class="textos">
+            Para nós,  mais do que sonhar e imaginar que é possível desenhar um novo futuro para os profissionais produtores e técnicos de eventos.
+            Nossa meta é ousada, e acreditamos  sim que é possível dar visibilidade, legitimidade para uma classe que é fundamental
+            no cenário econômico brasileiro, e que para muitos é como se ela fosse invisível, não  tem seu valor reconhecido.<br>
+            O futuro começa agora, para que possamos construir nosso amanhã!!<br>
             Vamos ajustar essa lente distorcida para que todos possam nos enxergar  profissionais importantes  no PIB de eventos.
-            Nós acreditamos que mudanças concretas acontecem quando pessoas se unem e lutam por essas mudanças. Esse é o nosso desafio e contamos com Você!
+            Nós acreditamos que mudanças concretas acontecem quando pessoas se unem e lutam por essas mudanças.
+            Esse é o nosso desafio e contamos com Você!<br>
             Vamos nos conhecer. Vamos juntos traçar nosso Perfil -  quem somos, onde estamos, o que queremos, como alcançaremos.
             Vamos deixar nossa marca no setor.  Ela existe para lutar e representá-lo em as suas questões.
-            Faça seu Cadastro, preencha com seus dados, Opine, traga suas sugestões.
+            Faça seu Cadastro, preencha com seus dados, Opine, traga suas sugestões.<br>
             Participe dessa construção, vamos desenhar juntos o futuro que desejamos.
-            (aquei precisamos deixar em destaque a pesquisa, o mais importante é a pesquisa, precisamos evidenciar, deixar de forma atrativa para que as pessoas responda.)
         </p>
         <div class="row">
             <div class="col-md-6">
-                <form action="{{route('site.store')}}" method="POST" class="needs-validation mt-5" novalidate>
+                <form action="{{route('site.store')}}" method="POST" class="needs-validation mt-3" novalidate>
                     @csrf
                     {{ method_field('POST') }}
                     @if ($errors->any())
@@ -37,7 +38,7 @@
                         {{ session()->get('success') }}
                         </div><br />
                     @endif
-                    <h5 class="label">Dados Pessoais</h5>
+                    <h5 class="labelTitle">Dados Pessoais</h5>
                     <div class="form-group">
                         <label for="nome" class="label">Nome*</label>
                         <input type="text" class="form-control" name="nome" id="nome" maxlength="255" value="{{old('nome')}}" required>
@@ -144,7 +145,7 @@
                 </form>
             </div>
             <div class="col-md-6 mb-5">
-
+                <img src="/images/dados7.jpg" alt="">
             </div>
         </div>
       </div>

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mt-5">
-                <div class="card-header" style="background-color: #343a40">{{ __('Login') }} - Área restrita</div>
+                <div class="card-header">{{ __('Login') }} - Área restrita</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

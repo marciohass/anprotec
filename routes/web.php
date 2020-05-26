@@ -18,7 +18,7 @@ Route::get('envio-email', function(){
 Route::get('/', 'SiteController@home')->name('site.home');
 Route::get('/dados', 'SiteController@dados')->name('site.dados');
 Route::post('/store', 'SiteController@storeDados')->name('site.store');
-Route::get('/questionario', 'SiteController@questionario')->name('questionario');
+Route::get('/questionario', 'SiteController@questionario')->name('site.questionario');
 Route::post('/questionariostore', 'SiteController@storeQuestionario')->name('site.questionariostore');
 Route::get('/feedback', 'SiteController@feedback')->name('site.feedback');
 
@@ -40,18 +40,5 @@ Route::group(['middleware' => ['auth', 'web']], function () {
     Route::get('admin/form-edit-usuarios/{id}', 'UsuariosController@edit')->name('admin.form-edit-usuarios');
     Route::put('usuarios/update/{id}', 'UsuariosController@update')->name('usuarios.update');
     Route::delete('usuarios/destroy/{id}', 'UsuariosController@destroy')->name('usuarios.destroy');
-
-    // Rota do Profile
-    Route::get('admin/form-profile/{id}', 'ProfileController@edit')->name('admin.form-profile');
-    Route::put('profile/update/{id}', 'ProfileController@update')->name('profile.update');
-    Route::post('uploadlogo/{id}', 'ProfileController@upload_logo')->name('uploadlogo');
-
-    // Rotas do catálogo de produtos
-    Route::get('admin/lista-produtos', 'ProdutosController@index')->name('admin.lista-produtos');
-    Route::get('admin/form-produtos', 'ProdutosController@create')->name('admin.form-produtos');
-    Route::post('produtos/store', 'ProdutosController@store')->name('produtos.store');
-    Route::get('admin/form-edit-produtos/{id}', 'ProdutosController@edit')->name('admin.form-edit-produtos');
-    Route::put('produtos/update/{id}', 'ProdutosController@update')->name('produtos.update');
-    Route::delete('produtos/destroy/{id}', 'ProdutosController@destroy')->name('produtos.destroy');
 
 });

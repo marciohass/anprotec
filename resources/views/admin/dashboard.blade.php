@@ -150,12 +150,12 @@
     var firstBarChart = new Chart(document.getElementById("bar-chart"), {
         type: 'bar',
         data: {
-        labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+        labels: [<?php echo str_replace("&#039;","'",$uf); ?>],
         datasets: [
             {
-            label: "Inscritos no UF",
-            backgroundColor: ["#6610f2", "#6610f2","#6610f2","#6610f2","#6610f2","#6610f2", "#6610f2","#6610f2","#6610f2","#6610f2","#6610f2", "#6610f2"],
-            data: [200,300,23,210,23,44,120,800,90,987,89,99]
+            label: "N. de inscritos",
+            backgroundColor: [<?php echo str_replace("&#039;","'",$cores); ?>],
+            data: [{{$dados_qtd}}]
             }
         ]
         },
@@ -172,12 +172,12 @@
     var myBarChart = new Chart(document.getElementById("bar-chart2"), {
         type: 'bar',
         data: {
-        labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
+        labels: [<?php echo str_replace("&#039;","'",$uf_assoc); ?>],
         datasets: [
             {
-            label: "Vendas no mês de Maio",
-            backgroundColor: ['#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2','#6610f2'],
-            data: [21,32,22,24,23,45,56,34,23,44,34,22,12,45,67,78,78,34,23,56,234,45,45,23,67,66,44,22,66,44,33]
+            label: "N. de associados",
+            backgroundColor: [<?php echo str_replace("&#039;","'",$cor); ?>],
+            data: [{{$qtd_assoc}}]
             }
         ]
         },
@@ -185,7 +185,7 @@
         legend: { display: false },
         title: {
             display: true,
-            text: 'Vendas no mês 03'
+            text: 'Associados por Estado'
         }
         }
     });

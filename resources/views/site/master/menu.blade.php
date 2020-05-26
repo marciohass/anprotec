@@ -32,16 +32,19 @@
             "
           >
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item mr-5">
+              <li class="nav-item mr-3">
                 <a class="nav-link" href="{{ route('site.home') }}#inicio">INÍCIO</a>
               </li>
-              <li class="nav-item mr-5">
-                <a class="nav-link" href="{{ route('site.home') }}#sobre">SOBRE</a>
+              <li class="nav-item mr-3">
+                <a class="nav-link" href="{{ route('site.home') }}#page1">TUDO POR TODOS</a>
               </li>
-              <li class="nav-item mr-5">
-                <a class="nav-link" href="{{ route('site.home') }}#contato">TUDO POR TODOS</a>
+              <li class="nav-item mr-3">
+                <a class="nav-link" href="{{ route('site.home') }}#page2">NOSSOS PROPÓSITOS</a>
               </li>
-              <li class="nav-item mr-5">
+              <li class="nav-item mr-3">
+                <a class="nav-link" href="{{ route('site.home') }}#page3">CLUBE DE OPORTUNIDADES</a>
+              </li>
+              <li class="nav-item mr-3">
                 <a class="nav-link" href="dados">CONSTRUINDO O AMANHÃ</a>
               </li>
             </ul>
