@@ -10,9 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('envio-email', function(){
-    return new \App\Mail\SendMailUser();
-});
 
 // Rota da página Home
 Route::get('/', 'SiteController@home')->name('site.home');
