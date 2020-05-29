@@ -1,9 +1,9 @@
 
     <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light mb-5">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light" style="background-color: #1316a3!important">
           <a class="navbar-brand mr-5 ml-5" href="#">
-            <img src="images/logo_anprotec2.png" class="ml-3" /><br>
-            <span style="font-weight: normal; font-size: 10.5px; margin-left: 17px; color: #1316a3;">Associação Nacional dos Produtores e Técnicos de Eventos</span>
+            <img src="images/logo_anprotec_azul.png" class="ml-3" /><br>
+            <span style="font-weight: normal; font-size: 10.5px; margin-left: 17px; color: #ffffff;">Associação Nacional dos Produtores e Técnicos de Eventos</span>
           </a>
           <button
             class="navbar-toggler"

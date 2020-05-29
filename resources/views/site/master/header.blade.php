@@ -30,7 +30,7 @@
               bottom: 0px;
               top: -560px;
               left: 30px;
-              background-color: #f8f9fa;
+              background-color: #ffffff;
               width: 480px;
               height: 480px;
               line-height: 500px;
@@ -40,6 +40,7 @@
               align-items: center;
               -webkit-justify-content: center;
               justify-content: center;
+              font-family: avenir-lt-w01_85-heavy1475544, sans-serif;
         }
         .font_3 {
             color: #1316a3;
@@ -57,15 +58,15 @@
         }
         .font_4 {
             font-style: normal;
-                  font-variant-ligatures: normal;
-                  font-variant-caps: normal;
-                  font-variant-numeric: normal;
-                  font-variant-east-asian: normal;
-                  font-weight: lighter;
-                  font-stretch: normal;
-                  font-size: 20px;
-                  line-height: 1.4em;
-                  font-family: avenir-lt-w01_35-light1475496, sans-serif;
+            font-variant-ligatures: normal;
+            font-variant-caps: normal;
+            font-variant-numeric: normal;
+            font-variant-east-asian: normal;
+            font-weight: lighter;
+            font-stretch: normal;
+            font-size: 20px;
+            line-height: 1.4em;
+            font-family: avenir-lt-w01_35-light1475496, sans-serif;
         }
         .footer_text {
             font-style: normal;
@@ -97,9 +98,10 @@
         }
         .labelTitle {
             color: #1215a2;
-            font-weight: 300;
+            font-weight: 350;
             font-size: 18px;
             line-height: 26px;
+            height: 26px;
         }
         .answer {
             font-weight: 300;
@@ -121,7 +123,8 @@
             font-stretch: normal;
             font-size: 16px;
             line-height: 1.4em;
-            font-family: helveticaneuew01-45ligh, helveticaneuew02-45ligh, helveticaneuew10-45ligh, sans-serif;
+            font-family: avenir-lt-w01_35-light1475496, sans-serif;
+            color: #1215a2;
         }
         .textos_propositos {
             font-style: normal;
@@ -133,7 +136,18 @@
             font-stretch: normal;
             font-size: 20px;
             line-height: 1.8em;
-            font-family: helveticaneuew01-45ligh, helveticaneuew02-45ligh, helveticaneuew10-45ligh, sans-serif;
+            font-family: avenir-lt-w01_35-light1475496, sans-serif;
+            color: #1215a2;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: white;
+        }
+        .navbar-light .navbar-nav .nav-link a:hover {
+            color: #ff7000!important;
+        }
+        .navbar-light .navbar-nav .nav-link :active
+        {
+            color: #ff7000;
         }
     </style>
     <!-- Adicionando JQuery -->
@@ -243,7 +257,8 @@
 
 		});
 
-	</script>
+    </script>
+
     <title>Anprotec</title>
   </head>
-  <body>
+  <body style="background-color: #f8f9fa">

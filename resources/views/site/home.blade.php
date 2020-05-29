@@ -2,11 +2,13 @@
 @extends('site.master.menu')
 
 <main role="main">
+    <a name="inicio"></a>
+    <!-- Inicio -->
     <div class="row" style="margin-right: 0px; margin-left: 0px;">
-        <div style="margin-bottom: -380px; margin-top: 150px;">
-          <a name="inicio"><img src="images/home3.jpg" class="img-fluid" /></a>
+        <div style="margin-bottom: -420px; margin-top: 150px;">
+          <a name="inicio"><img src="images/home3.png" class="img-fluid" /></a>
           <div class="title">
-            <div style="padding: 60px;">
+            <div style="padding: 60px; background-image: url('images/bg_texto.png');">
               <h4 class="font_4">
                 <span style="color: #1316a3;">
                     Em meio à pandemia e ao cancelamento de eventos, sentimos uma urgente necessidade de mudança. <br>
@@ -21,17 +23,18 @@
           </div>
         </div>
     </div>
+    <!-- ./Inicio -->
     <a name="page1"></a>
     <div class="container">
         <!-- PÁGINA 1 -->
-        <div class="row ml-1 mr-1">
+        <div class="row ml-1 mr-1" style="margin-top: 150px;">
             <h3 class="font_3">TUDO POR TODOS</h3>
             <img src="images/uniao.jpg" class="img-fluid mb-2" />
             <h5 class="mt-3" style="color: #ff7000;">Vem somar para transformar!</h5>
             <p class="textos mb-5">
                 A Anprotec Associação Nacional dos Produtores e Técnicos de Eventos com  sede em São Paulo,
                 e fundamentada em princípios de cooperação e integração, foi criada para dar visibilidade e representatividade
-                aos Produtores e Técnicos de Eventos.<a name="page2"></a>
+                aos Produtores e Técnicos de Eventos.
                 Há muito tempo essa classe trabalhadora enfrenta dificuldades na busca de estabilidade e reconhecimento profissional.
                 Os principais motivos disso são falta de órgãos regulamentadores, profissionais na  informalidade na prestação de serviços,
                 arriscando até a dizes que há  profissionais de outros segmentos prestando serviços de produção sem capacidade para tal.
@@ -40,9 +43,9 @@
             </p>
         </div>
         <!-- ./PÁGINA 1 -->
-
+        <a name="page2"></a>
         <!-- PÁGINA 2 -->
-        <h3 class="font_3">NOSSOS PROPÓSITOS</h3>
+        <h3 class="font_3" style="margin-top: 150px;">NOSSOS PROPÓSITOS</h3>
         <div class="row">
             <div class="col-sm-6">
                 <img src="images/propositos2.jpg" class="img-fluid mb-2" />
@@ -62,15 +65,15 @@
                     <li>
                         Criar e desenvolver sistematicamente um calendário de atividades e ações integradas visando ampla divulgação
                         e representatividade no mercado, além de networking entre os associados contribuindo para o desenvolvimento econômico politico
-                        e social.<a name="page3"></a>
+                        e social.
                     </li>
                 </ul>
             </div>
         </div>
         <!-- ./PÁGINA 2 -->
-
+        <a name="page3"></a>
         <!-- PÁGINA 3 -->
-        <h3 class="font_3 mt-5">CLUBE DE OPORTUNIDADES</h3>
+        <h3 class="font_3 mt-5" style="margin-top: 150px!important;">CLUBE DE OPORTUNIDADES</h3>
         <h3 class="font_3" style="color: #ff7000;"><small>PARCERIAS ESTRATÉGICAS</small></h3>
         <div class="row">
             <div class="col-sm-4">
@@ -89,7 +92,7 @@
             É a chance de contar com descontos, benefícios, vantagens diversas, um verdadeiro “Clube de Oportunidades” .
             Observando sempre os princípios sociais de cooperação e ética.
         </p>
-        <img src="images/anuncio2.jpg" class="img-fluid mb-5" />
+        <img src="images/banner_anuncie_aqui.gif" class="img-fluid mb-5" />
 
         <!-- ./PÁGINA 3 -->
     </div>

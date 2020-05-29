@@ -105,6 +105,10 @@ class SiteController extends Controller
             'inscrito_id' => 'required'
           ]);
 
+        $q9_desc01 = $this->moeda($request->get('q9_desc01'));
+        $q9_desc02 = $this->moeda($request->get('q9_desc02'));
+        $q9_desc03 = $this->moeda($request->get('q9_desc03'));
+
         $questionario = new Questionarios([
             'Q1' => $request->get('q1'),
             'Q2' => $request->get('q2'),
@@ -115,9 +119,9 @@ class SiteController extends Controller
             'Q6_desc' => $request->get('q6_desc'),
             'Q7' => $request->get('q7'),
             'Q8' => $request->get('q8'),
-            'Q9_desc01' => str_replace(',','.',$request->get('q9_desc01')),
-            'Q9_desc02' => str_replace(',','.',$request->get('q9_desc02')),
-            'Q9_desc03' => str_replace(',','.',$request->get('q9_desc03')),
+            'Q9_desc01' => $q9_desc01,
+            'Q9_desc02' => $q9_desc02,
+            'Q9_desc03' => $q9_desc03,
             'Q10' => $request->get('q10'),
             'Q11' => $request->get('q11'),
             'Q12' => $request->get('q12'),
@@ -150,6 +154,14 @@ class SiteController extends Controller
     public function feedback() {
 
         return view('site.feedback');
+    }
+
+    public static function moeda($get_valor) {
+
+        $source = array('.', ',');
+        $replace = array('', '.');
+        $valor = str_replace($source, $replace, $get_valor); //remove os pontos e substitui a virgula pelo ponto
+        return $valor; //retorna o valor formatado para gravar no banco
     }
 
 }
