@@ -100,7 +100,6 @@ class SiteController extends Controller
             'q23' => 'required',
             'q24' => 'required',
             'q25' => 'required',
-            'q26' => 'required',
             'q27' => 'required',
             'inscrito_id' => 'required'
           ]);

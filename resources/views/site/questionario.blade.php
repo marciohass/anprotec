@@ -147,6 +147,7 @@
                                       <span class="input-group-text">$</span>
                                     </div>
                                     <input type="text" class="form-control" maxlength="9" name="q9_desc01" id="q9_desc01" value="" required>
+                                    <small class="text-muted">Digitar nesse formato 1.000,00</small>
                                 </div>
                             </div>
                         </div>
@@ -158,6 +159,7 @@
                                       <span class="input-group-text">$</span>
                                     </div>
                                     <input type="text" class="form-control" maxlength="9" name="q9_desc02" id="q9_desc02" value="" required>
+                                    <small class="text-muted">Digitar nesse formato 1.000,00</small>
                                 </div>
                             </div>
                         </div>
@@ -169,6 +171,7 @@
                                       <span class="input-group-text">$</span>
                                     </div>
                                     <input type="text" class="form-control" maxlength="9" name="q9_desc03" id="q9_desc03" value="" required>
+                                    <small class="text-muted">Digitar nesse formato 1.000,00</small>
                                 </div>
                             </div>
                         </div>
