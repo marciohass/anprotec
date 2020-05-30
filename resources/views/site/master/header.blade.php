@@ -139,13 +139,13 @@
             font-family: avenir-lt-w01_35-light1475496, sans-serif;
             color: #1215a2;
         }
-        .navbar-light .navbar-nav .nav-link {
+        .navbar-dark .navbar-nav .nav-link {
             color: white;
         }
-        .navbar-light .navbar-nav .nav-link a:hover {
+        .navbar-dark .navbar-nav .nav-link a:hover {
             color: #ff7000!important;
         }
-        .navbar-light .navbar-nav .nav-link :active
+        .navbar-dark .navbar-nav .nav-link :active
         {
             color: #ff7000;
         }
